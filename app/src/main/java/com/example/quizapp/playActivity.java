@@ -11,22 +11,28 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class playActivity extends AppCompatActivity {
-    String[] question_list = {"Quel numéro est indissociable du footballeur Cristiano Ronaldo ?",
-            "D’où est originaire le footballeur portugais Cristiano Ronaldo ?","quel pays Cristiano Ronaldo n’a-t-il jamais été membre d’un club ?"
-            ,"Dans quel club de foot Cristiano Ronaldo est-il resté le plus longtemps en continu ?",
-           "Combien de Ligue des Champions Cristiano Ronaldo a-t-il remporté durant sa carrière madrilène de 2009 à 2018 ?"
+    String[] question_list = {
+            "What's my favorite color?",
+            "When is my Birth month?",
+            "What is my favorite flower?",
+            "What is my favorite animal?",
+            "What instrument I play?"
     };
-    String[] choose_list = {"3","7","14","19",
-            "porto","lisboone","madère","fato",
-            "italie","allemagne","espagne","angleterre",
-            "juventus","united","barcelone","madrid",
-            "1","2","4","5"
+
+    String[] choose_list = {
+            "Pink", "Blue", "Purple", "Blue",
+            "June", "December", "January", "October",
+            "Rose", "Carnation", "Tulips", "Sunflower",
+            "Koala", "Penguine", "Cat", "Dog",
+            "Piano", "Drums", "Acoustic Guitar", "Bass Guitar"
     };
-    String[] correct_list = {"7","madère","allemagne","madrid","4"};
 
+    String[] correct_list = {
+            "Pink", "January", "Carnation", "Dog", "Acoustic Guitar"
+    };
 
-    TextView cpt_question , text_question;
-    Button btn_choose1 , btn_choose2 , btn_choose3 , btn_choose4 , btn_next;
+    TextView cpt_question, text_question;
+    Button btn_choose1, btn_choose2, btn_choose3, btn_choose4, btn_next;
 
 
     int currentQuestion =  0  ;
@@ -57,7 +63,7 @@ public class playActivity extends AppCompatActivity {
                             isclickBtn = false;
 
                             if(!valueChoose.equals(correct_list[currentQuestion])){
-                                Toast.makeText(playActivity.this , "erreur",Toast.LENGTH_LONG).show();
+                                Toast.makeText(playActivity.this , "wrong",Toast.LENGTH_LONG).show();
                                 btn_click.setBackgroundResource(R.drawable.background_btn_erreur);
 
                             }else {
@@ -78,7 +84,7 @@ public class playActivity extends AppCompatActivity {
 
                                 }else {
                                     Intent intent  = new Intent(playActivity.this , ResulteActivity.class);
-                                    intent.putExtra("Resute" , scorePlayer);
+                                    intent.putExtra("Result" , scorePlayer);
                                     startActivity(intent);
                                     finish();
                                 }
@@ -86,7 +92,7 @@ public class playActivity extends AppCompatActivity {
                             },2000);
 
                         }else {
-                            Toast.makeText(playActivity.this ,  "Vous devez en choisir un",Toast.LENGTH_LONG).show();
+                            Toast.makeText(playActivity.this, "You must choose one", Toast.LENGTH_LONG).show();
                         }
                 }
         );
